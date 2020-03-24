@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Rohtas Special Sweets\"\n}",
+							"raw": "{\n\t\"name\":\"Drinks\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,6 +90,44 @@
 							"path": [
 								"category",
 								"5e6c7992caa82a2607feabee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/category/5e6c7992caa82a2607feabee",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"5e6c7992caa82a2607feabee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/category/5e6c94a8394e439e65c80325",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"5e6c94a8394e439e65c80325"
 							]
 						}
 					},
@@ -249,6 +287,25 @@
 							"path": [
 								"item",
 								"5e6c94a8394e439e65c80325"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/item/5e6c805ae878116783ccc771",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"item",
+								"5e6c805ae878116783ccc771"
 							]
 						}
 					},

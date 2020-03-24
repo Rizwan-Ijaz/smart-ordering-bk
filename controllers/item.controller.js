@@ -37,6 +37,16 @@ exports.getAll = async function (req, res) {
     }
 };
 
+exports.getById = async function (req, res) {
+    try {
+        const {id} = req.params;
+        const item = await ItemModel.findById(id).populate({path: 'category'});
+        defaultResponse().success(CONSTANTS.DATA_RETRIEVED, item, res, responseCodes.SUCCESS);
+    } catch (err) {
+        defaultResponse().error({message: err.message}, res, responseCodes.SERVER_ERROR);
+    }
+};
+
 exports.update = async function (req, res) {
     try {
         const requestBody = req.body;

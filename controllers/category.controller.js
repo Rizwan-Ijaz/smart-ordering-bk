@@ -17,10 +17,29 @@ exports.create = async function (req, res) {
     }
 };
 
+exports.delete = async function (req, res) {
+    try {
+        await CategoryModel.remove({_id: req.params.id});
+        defaultResponse().success(CONSTANTS.DATA_REMOVED_SUCCESS, {}, res, responseCodes.SUCCESS);
+    } catch (err) {
+        defaultResponse().error({message: err.message}, res, responseCodes.SERVER_ERROR);
+    }
+};
+
 exports.getAll = async function (req, res) {
     try {
         const categories = await CategoryModel.find();
         defaultResponse().success(CONSTANTS.DATA_RETRIEVED, categories, res, responseCodes.SUCCESS);
+    } catch (err) {
+        defaultResponse().error({message: err.message}, res, responseCodes.SERVER_ERROR);
+    }
+};
+
+exports.getById = async function (req, res) {
+    try {
+        const {id} = req.params;
+        const category = await CategoryModel.findById(id);
+        defaultResponse().success(CONSTANTS.DATA_RETRIEVED, category, res, responseCodes.SUCCESS);
     } catch (err) {
         defaultResponse().error({message: err.message}, res, responseCodes.SERVER_ERROR);
     }
