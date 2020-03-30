@@ -21,7 +21,7 @@ exports.create = async function (req, res) {
 
 exports.delete = async function (req, res) {
     try {
-        await ItemModel.remove({_id: req.params.id});
+        await ItemModel.deleteOne({_id: req.params.id});
         defaultResponse().success(CONSTANTS.DATA_REMOVED_SUCCESS, {}, res, responseCodes.SUCCESS);
     } catch (err) {
         defaultResponse().error({message: err.message}, res, responseCodes.SERVER_ERROR);
@@ -50,7 +50,7 @@ exports.getById = async function (req, res) {
 exports.update = async function (req, res) {
     try {
         const requestBody = req.body;
-        requestBody.image = req.files && req.files.length > 0 ? req.files[0].filename : null;
+        requestBody.image = req.files && req.files.length > 0 ? req.files[0].filename : requestBody.image;
 
         const updatedItem = await ItemModel.findOneAndUpdate({_id: req.params.id}, requestBody, {new: true})
             .populate({path: 'category'});
