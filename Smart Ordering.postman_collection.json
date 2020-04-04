@@ -46,7 +46,13 @@
 					"name": "Get All Categories",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2MDAxNTM4LCJleHAiOjE1ODY2MDYzMzh9.U1PBdfoOYgDG_k4wyu1AVFaO-ilS9Cis0mW66MbV-Bc",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "localhost:3000/category",
 							"host": [
@@ -313,6 +319,125 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "staff User",
+			"item": [
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"admin@admin.com\",\n\t\"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2MDAxNTM4LCJleHAiOjE1ODY2MDYzMzh9.U1PBdfoOYgDG_k4wyu1AVFaO-ilS9Cis0mW66MbV-Bc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"demo\",\n\t\"email\":\"demo@demo.com\",\n\t\"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2MDAxNTM4LCJleHAiOjE1ODY2MDYzMzh9.U1PBdfoOYgDG_k4wyu1AVFaO-ilS9Cis0mW66MbV-Bc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"demo\",\n\t\"email\":\"demo@demo.com\",\n\t\"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/5e887a70cdb964740d842c9d",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"5e887a70cdb964740d842c9d"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "seeding",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/seeding",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"seeding"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
