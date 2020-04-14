@@ -8,6 +8,7 @@ module.exports = {
     TOKEN_ERROR: "Token not correct.",
     USER_SIGNEDIN: "User is signed-in",
     USER_LOGGEDOUT: "User is logged-out",
-    INVALID_CREDENTIALS: "Email or password is incorrect"
-
+    INVALID_CREDENTIALS: "Email or password is incorrect",
+    CHECK_IN_STATUS: "Checked In",
+    CHECK_OUT_STATUS: "Checked Out",
 };
