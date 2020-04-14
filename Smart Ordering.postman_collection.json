@@ -422,17 +422,289 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Table",
+			"item": [
+				{
+					"name": "create table",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2ODg5OTgxLCJleHAiOjE1ODc0OTQ3ODF9.MklOFolEy_B4cBJcGXHVU32J_SlVzuCxXbSPioQTjMI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"checkInCode\": \"0000\",\n\t\"size\": \"5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/table",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update table",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2ODg5OTgxLCJleHAiOjE1ODc0OTQ3ODF9.MklOFolEy_B4cBJcGXHVU32J_SlVzuCxXbSPioQTjMI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"checkInCode\": \"0000\",\n\t\"size\": \"5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/table/5e96059100308ec24cc2a183",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"table",
+								"5e96059100308ec24cc2a183"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete table",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2ODg5OTgxLCJleHAiOjE1ODc0OTQ3ODF9.MklOFolEy_B4cBJcGXHVU32J_SlVzuCxXbSPioQTjMI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/table/5e96059100308ec24cc2a183",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"table",
+								"5e96059100308ec24cc2a183"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tables",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2ODg5OTgxLCJleHAiOjE1ODc0OTQ3ODF9.MklOFolEy_B4cBJcGXHVU32J_SlVzuCxXbSPioQTjMI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/table",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one table",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2ODg5OTgxLCJleHAiOjE1ODc0OTQ3ODF9.MklOFolEy_B4cBJcGXHVU32J_SlVzuCxXbSPioQTjMI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/table/5e96059100308ec24cc2a183",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"table",
+								"5e96059100308ec24cc2a183"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "checkIn",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"checkInCode\":\"0000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/customer/checkIn",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"customer",
+										"checkIn"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "get categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "checkin-id",
+								"value": "5e961211d66cec439a554dd5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/customer/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "checkin-id",
+								"type": "text",
+								"value": "5e961211d66cec439a554dd5"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/customer/items",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "seeding",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/seeding",
+					"raw": "localhost:3000/seeding/seeding",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"seeding",
 						"seeding"
 					]
 				}
