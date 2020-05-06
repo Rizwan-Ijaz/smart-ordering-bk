@@ -7,15 +7,18 @@ function routes() {
     const category = require('./category.routes');
     const table = require('./table.routes');
     const item = require('./item.routes');
+    const order = require('./order.routes');
     const user = require('./user.routes');
     const customer = require('./customer/index.routes');
 
+    router.use('/seeding', user);
     router.use('/auth', auth);
+    router.use('/user', authMiddleware, user);
     router.use('/category', authMiddleware, category);
     router.use('/table', authMiddleware, table);
     router.use('/item', authMiddleware, item);
-    router.use('/seeding', user);
-    router.use('/user', authMiddleware, user);
+    router.use('/order', authMiddleware, order);
+
     router.use('/customer', customer);
     return router;
 }

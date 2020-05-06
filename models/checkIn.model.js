@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const CheckInModel = new Schema({
     table: {type: Schema.Types.ObjectId, ref: 'Table', required: true},
-    checkInTime: {type: Date},
+    checkInTime: {type: Date,  default: Date.now},
     checkOutTime: {type: Date},
     status: {type: String}
 });

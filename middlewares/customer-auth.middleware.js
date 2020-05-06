@@ -13,6 +13,7 @@ module.exports = (req, res, next) => {
         if (!checkIn || checkInId.status === 1) {
             defaultResponse().error({message: constants.TOKEN_ERROR}, res, responseCodes.NO_TOKEN);
         } else {
+            req.checkIn = checkInId;
             next();
         }
     } else {

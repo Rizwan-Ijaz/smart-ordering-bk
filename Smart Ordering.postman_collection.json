@@ -431,13 +431,13 @@
 						"header": [
 							{
 								"key": "access-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg2ODg5OTgxLCJleHAiOjE1ODc0OTQ3ODF9.MklOFolEy_B4cBJcGXHVU32J_SlVzuCxXbSPioQTjMI",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg4NzkzNDgzLCJleHAiOjE1ODkzOTgyODN9.Y9bqsIIKSKkupoNsX1UDjX2h5NdAOwgcpODqjSEUXl4",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"checkInCode\": \"0000\",\n\t\"size\": \"5\"\n}",
+							"raw": "{\n\t\"checkInCode\": \"0001\",\n\t\"size\": \"5\",\n\t\"tableNo\":\"1123\",\n\t\"hallNo\": \"any thing\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -640,6 +640,74 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "get orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "checkin-id",
+										"value": "5eb30bf2cfb4f13651083f9c",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/customer/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"customer",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "checkin-id",
+										"value": "5eb30bf2cfb4f13651083f9c",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"orderDetail\":[\n\t\t{\n\t\t\t\"item\": \"5e6c946c1fa6e99a3d480591\",\n\t\t\t\"quantity\": 1\n\t\t}\t\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/customer/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"customer",
+										"order"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
 					"name": "get categories",
 					"request": {
 						"method": "GET",
@@ -684,6 +752,116 @@
 							"path": [
 								"customer",
 								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "get orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg4NzkzNDgzLCJleHAiOjE1ODkzOTgyODN9.Y9bqsIIKSKkupoNsX1UDjX2h5NdAOwgcpODqjSEUXl4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/order?status=pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg4NzkzNDgzLCJleHAiOjE1ODkzOTgyODN9.Y9bqsIIKSKkupoNsX1UDjX2h5NdAOwgcpODqjSEUXl4"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"approved\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/order/5eb30e6b950aad5350085a74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"5eb30e6b950aad5350085a74"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTg4NzkzNDgzLCJleHAiOjE1ODkzOTgyODN9.Y9bqsIIKSKkupoNsX1UDjX2h5NdAOwgcpODqjSEUXl4"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/order/5eb30e6b950aad5350085a74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"5eb30e6b950aad5350085a74"
 							]
 						}
 					},
