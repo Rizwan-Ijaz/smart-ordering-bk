@@ -30,7 +30,8 @@ exports.seeding = async function (req, res) {
         req.body = {
             name: 'Admin',
             email: 'admin@admin.com',
-            password: 'password'
+            password: 'password',
+            isAdmin: true,
         };
 
         await exports.create(req, res);
