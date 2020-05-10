@@ -10,10 +10,33 @@ exports.getAll = async function (req, res) {
         const {status} = req.query;
         let orders;
         if (status) {
-            orders = await OrderModel.find({status});
+            orders = await OrderModel.find({status})
+                .populate([
+                    {
+                        path: 'orderDetail.item', model: 'Item'
+                    },
+                    {
+                        path: 'checkIn', model: 'CheckIn',
+                        populate: {
+                            path: 'table', model: 'Table'
+                        }
+                    }
+                ]);
         } else {
-            orders = await OrderModel.find();
+            orders = await OrderModel.find()
+                .populate([
+                    {
+                        path: 'orderDetail.item', model: 'Item'
+                    },
+                    {
+                        path: 'checkIn', model: 'CheckIn',
+                        populate: {
+                            path: 'table', model: 'Table'
+                        }
+                    }
+                ]);
         }
+
 
         defaultResponse().success(CONSTANTS.DATA_RETRIEVED, orders, res, responseCodes.SUCCESS);
     } catch (err) {
