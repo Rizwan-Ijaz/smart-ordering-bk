@@ -708,6 +708,47 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"name": "Bill",
+					"item": [
+						{
+							"name": "request bill",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "checkin-id",
+										"value": "5ec1a1f77f1a0751b38cd3fc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"amount\": 1000,\n\t\"paymentType\": \"Cash\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/customer/bill",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"customer",
+										"bill"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
 					"name": "get categories",
 					"request": {
 						"method": "GET",
@@ -862,6 +903,70 @@
 							"path": [
 								"order",
 								"5eb30e6b950aad5350085a74"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bill",
+			"item": [
+				{
+					"name": "Get Pending Requested Bills",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTkwNjM5MjMwLCJleHAiOjE1OTEyNDQwMzB9.17FxuHjCj6MLM0qYq2rOm7vlNZ3Z4OJEGl1Dr32KmQ4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/bill",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bill"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update bill status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTkwNjM5MjMwLCJleHAiOjE1OTEyNDQwMzB9.17FxuHjCj6MLM0qYq2rOm7vlNZ3Z4OJEGl1Dr32KmQ4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"confirmed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/bill/5ec1a2ad88dee05da1a0d445",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bill",
+								"5ec1a2ad88dee05da1a0d445"
 							]
 						}
 					},

@@ -9,6 +9,7 @@ function routes() {
     const item = require('./item.routes');
     const order = require('./order.routes');
     const user = require('./user.routes');
+    const bill = require('./bill.routes');
     const customer = require('./customer/index.routes');
 
     router.use('/seeding', user);
@@ -18,6 +19,7 @@ function routes() {
     router.use('/table', authMiddleware, table);
     router.use('/item', authMiddleware, item);
     router.use('/order', authMiddleware, order);
+    router.use('/bill', authMiddleware, bill);
 
     router.use('/customer', customer);
     return router;
