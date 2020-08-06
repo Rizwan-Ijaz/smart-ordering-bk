@@ -6,7 +6,12 @@ const BillModel = require('../models/bill.model');
 exports.get = async function (req, res) {
     try {
 
-        const pendingRequestedBills = await BillModel.find({status: 'pending'}).populate({
+        let {status} = req.query;
+        if (status === 'all') {
+            status = ['pending', 'paid']
+        }
+
+        const pendingRequestedBills = await BillModel.find({status: status}).populate({
             path: 'checkIn',
             populate: [{
                 path: 'table'
