@@ -4,6 +4,7 @@ const userController = require('../controllers/user.controller');
 
 router.get('/seeding', userController.seeding);
 router.post('/', userController.create);
+router.get('/', userController.getAll);
 router.put('/:id', userController.update);
 
 

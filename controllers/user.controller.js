@@ -4,6 +4,17 @@ const responseCodes = require('../utils/responseCodes');
 const CONSTANTS = require('../utils/constants');
 const bcrypt = require('bcrypt');
 
+
+exports.getAll = async function (req, res) {
+    try {
+        const users = await UserModel.find();
+        defaultResponse().success(CONSTANTS.DATA_RETRIEVED, users, res, responseCodes.SUCCESS);
+
+    } catch (e) {
+        defaultResponse().error({message: err.message}, res, responseCodes.SERVER_ERROR);
+    }
+};
+
 exports.create = async function (req, res) {
 
     try {
