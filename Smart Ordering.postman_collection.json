@@ -417,6 +417,30 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTk2NzQwMzM0LCJleHAiOjE1OTczNDUxMzR9.orYZxmI7xnJcSnSLGAwTl5WeuUGuWIhKj3kOx5hV_7I",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -915,26 +939,33 @@
 			"name": "Bill",
 			"item": [
 				{
-					"name": "Get Pending Requested Bills",
+					"name": "Get bills by status",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "access-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTkwNjM5MjMwLCJleHAiOjE1OTEyNDQwMzB9.17FxuHjCj6MLM0qYq2rOm7vlNZ3Z4OJEGl1Dr32KmQ4",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTk2NzQwMzM0LCJleHAiOjE1OTczNDUxMzR9.orYZxmI7xnJcSnSLGAwTl5WeuUGuWIhKj3kOx5hV_7I",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/bill",
+							"raw": "localhost:3000/bill?status=paid",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"bill"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "paid"
+								}
 							]
-						}
+						},
+						"description": "statuses could be : 'pending', 'paid', 'all'"
 					},
 					"response": []
 				},
@@ -945,13 +976,13 @@
 						"header": [
 							{
 								"key": "access-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTkwNjM5MjMwLCJleHAiOjE1OTEyNDQwMzB9.17FxuHjCj6MLM0qYq2rOm7vlNZ3Z4OJEGl1Dr32KmQ4",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWU4ODZkZmZhNTQ0ZTQ3YzM2OGE2ZTQ2IiwiaWF0IjoxNTk2NzQwMzM0LCJleHAiOjE1OTczNDUxMzR9.orYZxmI7xnJcSnSLGAwTl5WeuUGuWIhKj3kOx5hV_7I",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"status\":\"confirmed\"\n}",
+							"raw": "{\n\t\"status\":\"paid\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
