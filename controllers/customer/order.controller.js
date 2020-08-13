@@ -24,7 +24,18 @@ exports.get = async function (req, res) {
         const orders = await OrderModel.find({checkIn: checkInId}).populate({
             path: 'orderDetail.item', model: 'Item'
         });
-        defaultResponse().success(CONSTANTS.DATA_RETRIEVED, orders, res, responseCodes.SUCCESS);
+
+        const totalPrice = orders.reduce((orderSum, order) => {
+            const price = order.orderDetail.reduce((sum, current) => {
+                return sum += (current.item.price * current.quantity);
+            }, 0);
+            orderSum = orderSum + price;
+            return orderSum;
+        }, 0);
+
+        const data = {totalPrice, orders};
+
+        defaultResponse().success(CONSTANTS.DATA_RETRIEVED, data, res, responseCodes.SUCCESS);
     } catch (err) {
         defaultResponse().error({message: err.message}, res, responseCodes.SERVER_ERROR);
     }
